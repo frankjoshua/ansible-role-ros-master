@@ -1,4 +1,4 @@
-# Role Name
+# role-ros-master [![Build Status](https://travis-ci.org/frankjoshua/docker-ros-master.svg?branch=master)](https://travis-ci.org/frankjoshua/docker-ros-master)<br>
 
 Deploys a ROS master in a Docker container.
 
