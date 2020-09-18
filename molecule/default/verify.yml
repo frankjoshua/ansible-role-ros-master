@@ -1,0 +1,13 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  tasks:
+    - name: Test rostopic
+      command: rostopic list
+      register: cmd_result
+
+    - name: Example assertion
+      assert:
+        that: true

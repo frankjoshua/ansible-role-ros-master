@@ -1,0 +1,20 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu1804}-ansible
+    command: ${MOLECULE_DOCKER_COMMAND:-"sleep infinity"}
+    privileged: true
+    pre_build_image: true
+    capabilities:
+      - SYS_ADMIN
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /var/lib/docker
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
