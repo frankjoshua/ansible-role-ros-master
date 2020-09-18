@@ -4,7 +4,7 @@
   gather_facts: no
   pre_tasks:
     - name: Check for Python
-      raw: test -e /usr/bin/python
+      raw: test -e /usr/bin/python3
       changed_when: false
       failed_when: false
       register: check_python
@@ -15,6 +15,10 @@
 
     - name: Gathering facts
       setup:
+
+    - name: Update apt for docker role
+      apt:
+        cache_valid_time: 3600
 
   tasks:
     - name: 'Include ansible-role-ros-master'

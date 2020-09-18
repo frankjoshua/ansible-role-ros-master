@@ -4,10 +4,11 @@
 - name: Verify
   hosts: all
   tasks:
-    - name: Test rostopic
-      command: rostopic list
+    - name: Test ros master
+      shell: '{% raw %}$(docker inspect -f ''{{.State.Running}}'' ros_master) = "true"{% endraw %}'
       register: cmd_result
+      ignore_errors: yes
 
-    - name: Example assertion
+    - name: ROS master should be running
       assert:
-        that: true
+        that: '{{ cmd_result.rc }} == 0'
