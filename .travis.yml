@@ -2,6 +2,10 @@
 language: python
 services: docker
 
+arch:
+  - amd64
+  - arm64
+
 env:
   matrix:
     # - MOLECULE_DISTRO: ubuntu2004
