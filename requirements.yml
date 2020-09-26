@@ -1,6 +1,6 @@
 roles:
   - name: geerlingguy.docker
-    src: https://github.com/frankjoshua/ansible-role-docker
+    src: https://github.com/geerlingguy/ansible-role-docker
     branch: arm-test
   - name: geerlingguy.pip
     src: https://github.com/geerlingguy/ansible-role-pip
