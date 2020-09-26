@@ -1,4 +1,17 @@
 ---
+- name: Get DEB architecture
+  shell: dpkg --print-architecture
+  register: deb_architecture
+
+- debug: 
+    msg: "{{ deb_architecture.stdout }}"
+
+- name: 'Include geerlingguy.docker'
+  include_role:
+    name: 'geerlingguy.docker'
+  vars:
+    docker_apt_arch: "{{ deb_architecture.stdout }}"
+
 - name: install docker pip
   pip:
     name: docker
