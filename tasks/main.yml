@@ -17,6 +17,10 @@
   pip:
     name: docker
 
+- name: Ensure docker deamon is running
+  shell: service docker start
+  ignore_errors: yes
+
 - name: Start ROS master docker container
   docker_container:
     name: '{{ docker_name }}'
