@@ -7,6 +7,8 @@ arch:
   - arm64
 
 env:
+  global:
+    - MOLECULE_NO_LOG: 'false'
   matrix:
     - MOLECULE_DISTRO: '20.04'
     - MOLECULE_DISTRO: '18.04'
