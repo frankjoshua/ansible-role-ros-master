@@ -10,7 +10,7 @@
       register: check_python
 
     - name: Install Python
-      raw: apt -y update && apt install -y python3.7-minimal python3-apt
+      raw: apt -y update && apt install -y python3-minimal python3-apt
       when: check_python.rc != 0
 
     - name: Gathering facts
@@ -21,7 +21,6 @@
         cache_valid_time: 3600
 
   tasks:
-
     - name: 'Include ansible-role-ros-master'
       include_role:
         name: 'ansible-role-ros-master'
