@@ -25,7 +25,7 @@
 - name: Start ROS master docker container
   docker_container:
     name: '{{ docker_name }}'
-    image: 'frankjoshua/ros-master:{{ cpu_arch }}'
+    image: 'frankjoshua/ros-master'
     network_mode: 'host'
     restart_policy: 'unless-stopped'
     env:
