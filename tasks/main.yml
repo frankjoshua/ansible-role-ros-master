@@ -4,14 +4,18 @@
   register: deb_architecture
   changed_when: false
 
-- debug: 
-    msg: "{{ deb_architecture.stdout }}"
+- debug:
+    msg: '{{ deb_architecture.stdout }}'
 
-- name: 'Include geerlingguy.docker'
-  include_role:
-    name: 'geerlingguy.docker'
+- name: Install Docker
+  import_tasks: docker.yml
   vars:
-    docker_apt_arch: "{{ deb_architecture.stdout }}"
+    docker_apt_arch: '{{ deb_architecture.stdout }}'
+
+- name: Install Pip
+  package:
+    name: python3-pip
+    state: present
 
 - name: install docker pip
   pip:
