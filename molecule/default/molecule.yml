@@ -5,6 +5,9 @@ dependency:
   requirements-file: requirements.yml
 driver:
   name: docker
+lint: |
+  set -e
+  yamllint .
 platforms:
   - name: instance
     image: ubuntu:${MOLECULE_DISTRO:-18.04}

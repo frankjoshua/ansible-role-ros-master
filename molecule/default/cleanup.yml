@@ -1,8 +1,10 @@
 ---
 - name: Cleanup
   hosts: all
+  gather_facts: no
   tasks:
     - name: Remove container
       docker_container:
         name: ros_master
         state: absent
+      ignore_errors: yes
