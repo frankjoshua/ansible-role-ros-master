@@ -21,7 +21,7 @@
   pip:
     name: docker
 
-- name: Ensure docker deamon is running
+- name: Ensure docker daemon is running
   shell: service docker start
   ignore_errors: yes
   changed_when: false
