@@ -1,0 +1,8 @@
+---
+- name: Cleanup
+  hosts: all
+  tasks:
+    - name: Remove container
+      docker_container:
+        name: ros_master
+        state: absent
