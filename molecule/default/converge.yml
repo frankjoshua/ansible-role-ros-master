@@ -24,3 +24,5 @@
     - name: 'Include ansible-role-ros-master'
       include_role:
         name: 'ansible-role-ros-master'
+      vars:
+        ros_ip: 127.0.0.1

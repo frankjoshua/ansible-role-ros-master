@@ -21,10 +21,12 @@
   pip:
     name: docker
 
+# Service module is not starting Docker so using the shell
 - name: Ensure docker daemon is running
   shell: service docker start
   ignore_errors: yes
   changed_when: false
+  warn: false
 
 - name: Start ROS master docker container
   docker_container:
@@ -35,3 +37,4 @@
     env:
       ROS_MASTER_URI: '{{ ros_master_uri }}'
       ROS_IP: '{{ ros_ip }}'
+  register: container_status

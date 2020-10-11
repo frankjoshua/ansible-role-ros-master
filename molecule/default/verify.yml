@@ -4,6 +4,10 @@
 - name: Verify
   hosts: all
   tasks:
+    - name: Wait for container to start
+      wait_for:
+        timeout: 30
+
     - name: Get infos on container
       docker_container_info:
         name: ros_master
@@ -17,5 +21,3 @@
       assert:
         that: "'{{ result.container['State']['Health']['Status'] }}' == 'healthy'"
       when: result.exists
-      retries: 3
-      delay: 15
