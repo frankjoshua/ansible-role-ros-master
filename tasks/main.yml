@@ -26,7 +26,6 @@
   shell: service docker start
   ignore_errors: yes
   changed_when: false
-  warn: false
 
 - name: Start ROS master docker container
   docker_container:
