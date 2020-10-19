@@ -9,6 +9,7 @@ See [requirements.yml](requirements.yml)
 ## Role Variables
 
 By default we assume that the master is the Robot and use the host ip. This can be changed by setting these variables.
+
 ```
 ros_ip: "{{ ansible_ssh_host }}"
 ros_master_uri: "http://{{ ansible_ssh_host }}:11311"
@@ -29,6 +30,14 @@ ros_master_uri: "http://{{ ansible_ssh_host }}:11311"
 ## Testing
 
 `molecule test`
+
+To trouble shoot issues.
+
+```
+molecule converge
+molecule verify
+molecule login
+```
 
 ## License
 
