@@ -3,8 +3,6 @@ dependency:
   name: galaxy
   role-file: requirements.yml
   requirements-file: requirements.yml
-driver:
-  name: docker
 lint: |
   set -e
   yamllint .
