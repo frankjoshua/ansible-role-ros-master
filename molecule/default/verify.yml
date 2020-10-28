@@ -5,12 +5,12 @@
   hosts: all
 
   vars:
-    container_name: 'ros_master'
+    container_name: "{{ lookup('env', 'DOCKER_NAME') }}"
 
   tasks:
     - name: Wait for container to start
       wait_for:
-        timeout: 45
+        timeout: 30
 
     - name: Get infos on container
       docker_container_info:

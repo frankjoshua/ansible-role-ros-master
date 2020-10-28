@@ -7,5 +7,5 @@
   tasks:
     - name: Remove container
       docker_container:
-        name: ros_master
+        name: "{{ lookup('env', 'DOCKER_NAME') }}"
         state: absent

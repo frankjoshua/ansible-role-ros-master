@@ -27,5 +27,7 @@ provisioner:
   # Turn on Diff for extra debugging
   options:
     D: True
+  env:
+    DOCKER_NAME: ros_master
 verifier:
   name: ansible

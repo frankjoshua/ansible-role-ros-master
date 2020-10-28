@@ -57,5 +57,10 @@
 - include_tasks: docker-compose.yml
   when: docker_install_compose | bool
 
-- include_tasks: docker-users.yml
+- name: Ensure docker users are added to the docker group.
+  user:
+    name: '{{ item }}'
+    groups: docker
+    append: true
+  with_items: '{{ docker_users }}'
   when: docker_users | length > 0

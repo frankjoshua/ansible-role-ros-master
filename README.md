@@ -11,8 +11,11 @@ See [requirements.yml](requirements.yml)
 By default we assume that the master is the Robot and use the host ip. This can be changed by setting these variables.
 
 ```
-ros_ip: "{{ ansible_ssh_host }}"
-ros_master_uri: "http://{{ ansible_ssh_host }}:11311"
+ros_ip: "{{ ansible_default_ipv4.address | default('127.0.0.1') }}"
+ros_master_uri: 'http://{{ ros_ip }}:11311'
+docker_name: 'ros_master'
+pull_image: false
+docker_image: 'frankjoshua/ros-master:latest'
 ```
 
 ## Dependencies
