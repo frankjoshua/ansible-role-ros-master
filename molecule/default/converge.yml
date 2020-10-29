@@ -20,9 +20,11 @@
       apt:
         cache_valid_time: 3600
 
+  vars:
+    role_name: "{{ lookup('env', 'ROLE_NAME') }}"
+    ros_ip: 127.0.0.1
+
   tasks:
-    - name: 'Include ansible-role-ros-master'
+    - name: 'Include {{ role_name }}'
       include_role:
-        name: 'ansible-role-ros-master'
-      vars:
-        ros_ip: 127.0.0.1
+        name: '{{ role_name }}'

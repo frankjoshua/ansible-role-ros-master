@@ -29,5 +29,6 @@ provisioner:
     D: True
   env:
     DOCKER_NAME: ros_master
+    ROLE_NAME: ansible-role-ros-master
 verifier:
   name: ansible
